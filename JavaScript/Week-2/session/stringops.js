@@ -1,4 +1,13 @@
 function funWithComma(input) {
+
+    // const words = input.split(" ");
+    // if (words.length === 1) {
+    //     return words[0];
+    // }
+    // const lastWord = words.pop();
+    // const output = words.join(", ") + " and " + lastWord;
+    // return output;
+
     const length = input.length;
     let output = "";
     for (let i = 0; i < length; i++) {
@@ -8,8 +17,12 @@ function funWithComma(input) {
         else {
             output += input[i];
         }
+
+
     }
+    const lastWord = output.split(", ").pop();
     return output;
+    // return output + " and "+ lastWord;
 }
 
 // Test cases

@@ -1,0 +1,12 @@
+let styles = ["Jazz", "Blues"];
+console.log("Initial Array", styles);
+styles.push("Rock-n-Roll");
+console.log("After Push into Array", styles);
+console.log(styles.length);
+const middleElement = Math.floor(styles.length / 2);
+styles[middleElement] = "Classics";
+console.log("After changing middleElement value in Array", styles);
+styles.shift();
+console.log("Strip off the first value of the array ", styles);
+styles.unshift("Rap", "Reggae");
+console.log("Final array ", styles);
