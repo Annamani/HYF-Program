@@ -123,7 +123,7 @@ const setTimer = (command) => {
 
 const getReply = (command) => {
     const lowerCaseCommand = command.toLowerCase();
-    switch (true) {
+    switch (command) {
         case lowerCaseCommand.startsWith("hello my name is "):
             return getReplyUserName(lowerCaseCommand);
 
