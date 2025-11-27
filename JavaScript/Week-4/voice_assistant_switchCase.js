@@ -79,27 +79,31 @@ const getOperationResult = (command) => {
                 .split(operator)
                 .map((part) => part.trim());
             if (expressionParts.length === 2) {
-                const num1 = parseFloat(expressionParts[0]);
-                const num2 = parseFloat(expressionParts[1]);
-                let result;
-                switch (operator) {
-                    case "+":
-                        result = num1 + num2;
-                        break;
-                    case "-":
-                        result = num1 - num2;
-                        break;
-                    case "*":
-                        result = num1 * num2;
-                        break;
-                    case "/":
-                        result = num1 / num2;
-                        break;
-                }
-                return `${expression} is ${result}`;
+                const output = getResult(expressionParts[0], expressionParts[1], operator);
+                return `${expression} is${output}`;
             }
         }
     }
+};
+const getResult = (number1, number2, operator) => {
+    const num1 = parseFloat(number1);
+    const num2 = parseFloat(number2);
+    let result;
+    switch (operator) {
+        case "+":
+            result = num1 + num2;
+            break;
+        case "-":
+            result = num1 - num2;
+            break;
+        case "*":
+            result = num1 * num2;
+            break;
+        case "/":
+            result = num1 / num2;
+            break;
+    }
+    return ` ${result}`;
 };
 const setTimer = (command) => {
     const timePart = command
