@@ -126,23 +126,31 @@ const getReply = (command) => {
     switch (true) {
         case lowerCaseCommand.startsWith("hello my name is "):
             return getReplyUserName(lowerCaseCommand);
+
         case lowerCaseCommand === "what is my name?":
             return getUserName(userName);
+
         case lowerCaseCommand.startsWith("add") &&
             lowerCaseCommand.includes("to my todo"):
             return addToDo(lowerCaseCommand, todoList);
+
         case lowerCaseCommand.startsWith("remove") &&
             lowerCaseCommand.includes("from my todo"):
             return removeTask(lowerCaseCommand, todoList);
+
         case lowerCaseCommand === "what is on my todo?":
             return getTodoList(todoList);
+
         case lowerCaseCommand === "what day is it today?":
             return getTodayDetails(today, weekDays, months);
+
         case lowerCaseCommand.startsWith("what is"):
             return getOperationResult(lowerCaseCommand);
+
         case lowerCaseCommand.startsWith("set a timer for") &&
             lowerCaseCommand.includes("minutes"):
             return setTimer(lowerCaseCommand);
+
         default:
             return "I'm sorry, I didn't understand that command.";
     }
