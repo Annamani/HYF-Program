@@ -49,7 +49,10 @@ const addToDo = (command, todoList) => {
     return `${task} added to your todo`;
 };
 const removeTask = (command, todoList) => {
-    const taskName = command.replace("remove", "").replace("from my todo", "").trim();
+    const taskName = command
+        .replace("remove", "")
+        .replace("from my todo", "")
+        .trim();
     if (todoList.indexOf(taskName) !== -1) {
         todoList.splice(todoList.indexOf(taskName), 1);
         return `${taskName} removed from your todo`;
@@ -78,7 +81,9 @@ const getOperationResult = (command) => {
             const expressionParts = expression
                 .split(operator)
                 .map((part) => part.trim());
-            if (expressionParts.length === 2) {
+            if (expressionParts.length > 2) {
+                return "I can't calculate this expression.";
+            } else {
                 const output = getResult(expressionParts[0], expressionParts[1], operator);
                 return `${expression} is${output}`;
             }
@@ -123,9 +128,11 @@ const getReply = (command) => {
             return getReplyUserName(lowerCaseCommand);
         case lowerCaseCommand === "what is my name?":
             return getUserName(userName);
-        case lowerCaseCommand.startsWith("add") && lowerCaseCommand.includes("to my todo"):
+        case lowerCaseCommand.startsWith("add") &&
+            lowerCaseCommand.includes("to my todo"):
             return addToDo(lowerCaseCommand, todoList);
-        case lowerCaseCommand.startsWith("remove") && lowerCaseCommand.includes("from my todo"):
+        case lowerCaseCommand.startsWith("remove") &&
+            lowerCaseCommand.includes("from my todo"):
             return removeTask(lowerCaseCommand, todoList);
         case lowerCaseCommand === "what is on my todo?":
             return getTodoList(todoList);
@@ -133,7 +140,8 @@ const getReply = (command) => {
             return getTodayDetails(today, weekDays, months);
         case lowerCaseCommand.startsWith("what is"):
             return getOperationResult(lowerCaseCommand);
-        case lowerCaseCommand.startsWith("set a timer for") && lowerCaseCommand.includes("minutes"):
+        case lowerCaseCommand.startsWith("set a timer for") &&
+            lowerCaseCommand.includes("minutes"):
             return setTimer(lowerCaseCommand);
         default:
             return "I'm sorry, I didn't understand that command.";
@@ -157,4 +165,5 @@ console.log(getReply("Remove check all bills from my todo")); // "check all bill
 console.log(getReply("What is on my todo?")); // "You have 4 tasks on your todo: singing in the shower , cleaning the house , reading a book , going for a walk"\
 console.log(getReply("open google")); // "I'm sorry, I didn't understand that command."
 console.log(getReply("How is the weather today?")); // "I'm sorry, I didn't understand that command."
-console.log(getReply("remove cleaning the house from my todo"));
+console.log(getReply("remove cleaning the house from my todo")); //"cleaning the house removed from your todo"
+console.log(getReply("what is 2 + 5 + 7")); //I can't calculate this expression.
