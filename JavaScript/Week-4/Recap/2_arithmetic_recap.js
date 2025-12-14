@@ -5,28 +5,39 @@
 //======================
 
 // Addition (+)
-
+function addNumbers(num1, num2) {
+    let result = num1 + num2;
+    return result;
+}
 
 // Subtraction (-)
-
+function subNumbers(num1, num2) {
+    if (num1 > num2) return num1 - num2;
+    else return num2 - num1;
+}
 
 // Multiplication (*)
-
+function mulNumbers(num1, num2) {
+    return num1 * num2;
+}
 
 // Division (/)
+function divNumbers(num1, num2) {
+    if (num1 > 0 && num2 > 0) return num1 / num2;
+}
 
-
-// console.log(sum);        // 15
-// console.log(difference); // 5
-// console.log(product);    // 50
-// console.log(quotient);   // 2
+console.log(addNumbers(7, 8));        // 15
+console.log(subNumbers(3, 8)); // 5
+console.log(mulNumbers(10, 5));    // 50
+console.log(divNumbers(24, 12));   // 2
 
 
 // 2️⃣ MODULUS (REMAINDER)
 //=========================
-
-
-// console.log(remainder);     // 1 (17 ÷ 4 = 4 remainder 1)
+function modNumbers(num1, num2) {
+    if (num1 > 0 && num2 > 0) return num1 % num2;
+}
+console.log(modNumbers(17, 4));     // 1 (17 ÷ 4 = 4 remainder 1)
 // console.log(isEvenNumber);  // false
 
 
