@@ -15,17 +15,18 @@ const podcasts = [
         name: "Breakfast news - Dinner edition",
     },
 ];
+const podcastContainer = document.getElementById("podcastList");
 const podCastList = document.createElement("ul");
 for (let i = 0; i < podcasts.length; i++) {
     const listItem = document.createElement("li");
     const headingElement = document.createElement("h1");
     headingElement.innerHTML = podcasts[i].name;
     listItem.appendChild(headingElement);
-
-    // if (podcasts[i].imageUrl) {
-    //const src=
-    //     listItem.appendChild(imageUrl);
-    // }
-    // podCastList.appendChild(listItem);
-
+    podCastList.appendChild(listItem);
+    if (podcasts[i].imageUrl) {
+        const imageElement = document.createElement("img");
+        imageElement.src = podcasts[i].imageUrl;
+        listItem.appendChild(imageElement);
+    }
 }
+podcastContainer.appendChild(podCastList);
