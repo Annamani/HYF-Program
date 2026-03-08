@@ -21,6 +21,6 @@ const getHighCaffeine=data.filter(function(tea){
 const getAvailableTea= data.filter(function(tea){
   // if(tea.organic && tea.inStock>0)
   //   return tea;
-  return tea.organic && tea.inStock>0;
+  return tea.organic && tea.inStock;
 })
 console.log(getAvailableTea);
