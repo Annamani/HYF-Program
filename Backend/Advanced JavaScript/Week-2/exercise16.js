@@ -6,5 +6,6 @@ fs.readFile("./orders.json", { encoding: "utf8" }, function (error, data) {
     return;
   }
   const orders = JSON.parse(data);
+  console.log(orders);
   console.log(`Number of orders: ${orders.length}`);
   });
